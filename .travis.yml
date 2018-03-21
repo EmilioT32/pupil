@@ -24,6 +24,7 @@ addons:
       - libglew-dev
       - libglfw3-dev
       - libtbb-dev
+      # ffmpeg > 3.2
       - libavformat-dev
       - libavcodec-dev
       - libavdevice-dev
@@ -59,7 +60,7 @@ install:
   - ./configure --enable-static=no --prefix=/usr/local
   - make install
   - ldconfig  
-  # libusb
+  # libusb - only required for 17.10 - but will test here as well
   - sudo cp '~/path to your fixed binary/libusb-1.0.so.0' '/lib/x86_64-linux-gnu/libusb-1.0.so.0'
   # libuvc
   - git clone https://github.com/pupil-labs/libuvc
@@ -68,7 +69,7 @@ install:
   - cd build
   - cmake ..
   - make && make install
-  # pip install
+  # pip install - todo make requirements.txt file
   - pip install numexpr
   - pip install cython
   - pip install psutil
