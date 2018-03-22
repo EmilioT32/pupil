@@ -9,13 +9,13 @@ os:
 sudo: true
 before_install:
   # add sourcelines
-  - sudo add-apt-repository ppa:jonathonf/ffmpeg-3
-  - sudo add-apt-repository ppa:bzindovic/suitesparse-bugfix-1319687
+  - sudo -E add-apt-repository -y ppa:jonathonf/ffmpeg-3
+  - sudo -E add-apt-repository -y ppa:bzindovic/suitesparse-bugfix-1319687
   # update
-  - sudo apt-get -yq update
+  - sudo -E apt-get -yq update
   # add packages
   - |
-    sudo apt-get install -yq --no-install-suggests --no-install-recommends
+    sudo -E apt-get install -yq --no-install-suggests --no-install-recommends
     pkg-config build-essential nasm python3-setuptools libusb-1.0-0-dev
     python3-dev python3-pip python3-numpy python3-scipy libglew-dev libglfw3-dev libtbb-dev
     libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev
