@@ -6,45 +6,21 @@ branches:
     - travis_ci_linux
 os:
   - linux
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:jonathonf/ffmpeg-3'
-      - sourceline: 'ppa:bzindovic/suitesparse-bugfix-1319687'
-    packages:
-      - pkg-config
-      - build-essential
-      - nasm
-      - python3-setuptools
-      - libusb-1.0-0-dev
-      - python3-dev
-      - python3-pip
-      - python3-numpy
-      - python3-scipy
-      - libglew-dev
-      - libglfw3-dev
-      - libtbb-dev
-      # ffmpeg > 3.2
-      - libavformat-dev
-      - libavcodec-dev
-      - libavdevice-dev
-      - libavutil-dev
-      - libswscale-dev
-      - libavresample-dev
-      - ffmpeg
-      - libav-tools
-      - x264
-      - x265
-      - libportaudio2
-      - portaudio19-dev
-      # 3d model dependencies
-      - libboost-dev
-      - libsuitesparse-dev
-      - libboost-python-dev
-      - libgoogle-glog-dev
-      - libatlas-base-dev
-      - libeigen3-dev
-      - libsuitesparse-dev
+sudo: true
+before_install:
+  # add sourcelines
+  - sudo add-apt-repository ppa:jonathonf/ffmpeg-3
+  - sudo add-apt-repository ppa:bzindovic/suitesparse-bugfix-1319687
+  # update
+  - sudo apt-get -yq update
+  # add packages
+  - |
+    sudo apt-get install -yq --no-install-suggests --no-install-recommends
+    pkg-config build-essential nasm python3-setuptools libusb-1.0-0-dev
+    python3-dev python3-pip python3-numpy python3-scipy libglew-dev libglfw3-dev libtbb-dev
+    libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev
+    ffmpeg libav-tools x264 x265 libportaudio2 portaudio19-dev
+    libboost-dev libboost-python-dev libgoogle-glog-dev libatlas-base-dev libeigen3-dev libsuitesparse-dev
 install:
   # opencv
   - git clone https://github.com/opencv/opencv
