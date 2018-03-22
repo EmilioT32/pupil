@@ -10,6 +10,8 @@ sudo: true
 before_install:
   # add sourcelines
   - sudo -E add-apt-repository -y ppa:jonathonf/ffmpeg-3
+  # glfw3 workaround for 14.04 without building from source
+  - sudo -E add-apt-repository -y ppa:keithw/glfw3 
   - sudo -E add-apt-repository -y ppa:bzindovic/suitesparse-bugfix-1319687
   # update
   - sudo -E apt-get -yq update
