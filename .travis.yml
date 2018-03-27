@@ -16,4 +16,4 @@ before_install:
   - docker ps
   - ls -alR
 script:
-  - docker exec -t ./travis/deployment/bundle.sh
+  - docker exec -t pupil-ubuntu /bin/sh -c "/travis/deployment/bundle.sh"
