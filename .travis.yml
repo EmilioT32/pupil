@@ -14,5 +14,6 @@ before_install:
   # tail -f /dev/null enables us to view docker output in ci log
   - docker run -d --name pupil-ubuntu -v $(pwd):/travis pupillabs/pupil-docker-ubuntu:1.0 tail -f /dev/null
   - docker ps
+  - ls -alR
 script:
-  - ./deployment/bundle.sh
+  - docker exec -t ./travis/deployment/bundle.sh
