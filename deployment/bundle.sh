@@ -1,5 +1,5 @@
-python ../pupil_src/shared_modules/pupil_detectors/build.py
-python ../pupil_src/shared_modules/cython_methods/build.py
+python3 ../pupil_src/shared_modules/pupil_detectors/build.py
+python3 ../pupil_src/shared_modules/cython_methods/build.py
 rm *.dmg
 rm *.deb
 cd deploy_capture
