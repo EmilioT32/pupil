@@ -22,4 +22,6 @@ before_install:
   - ls -alR $TRAVIS_BUILD_DIR
   - docker inspect pupil-ubuntu
 script:
-  - docker exec -t pupil-ubuntu /bin/sh -c "/pupil/deployment/bundle.sh"
+  - docker exec -t pupil-ubuntu bash -c "ls -alR &&
+    chmod +x pupil;
+    ./pupil/deployment/bundle.sh"
