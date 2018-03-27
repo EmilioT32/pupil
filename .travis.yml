@@ -12,7 +12,8 @@ os:
 before_install:
   # create a docker container for 16.04 'pupil-ubuntu' and map working dir to travis
   # tail -f /dev/null enables us to view docker output in ci log
-  - docker run -d --name pupil-ubuntu -v $TRAVIS_BUILD_DIR:/travis pupillabs/pupil-docker-ubuntu:1.0 tail -f /dev/null
+  - docker run -d --name pupil-ubuntu --mount type=bind,source="$(TRAVIS_BUILD_DIR)",target=/travis pupillabs/pupil-docker-ubuntu:1.0 tail -f /dev/null
   - docker ps
+  - ls -alR $TRAVIS_BUILD_DIR
 script:
   - docker exec -t pupil-ubuntu bash -c "ls -alR"
