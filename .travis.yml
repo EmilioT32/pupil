@@ -16,6 +16,6 @@ before_install:
   - docker ps
   - ls -alR
 script:
-  - docker exec -t pupil-ubuntu -c bash "chmod +x travis &&
+  - docker exec -t pupil-ubuntu bash -c "chmod +x travis &&
     cd deployment &&
     ./bundle.sh"
