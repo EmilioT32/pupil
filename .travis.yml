@@ -24,4 +24,5 @@ before_install:
 script:
   - docker exec -t pupil-ubuntu bash -c "ls -alR &&
     chmod +x pupil;
-    ./pupil/deployment/bundle.sh"
+    cd pupil/deployment &&
+    ./bundle.sh"
