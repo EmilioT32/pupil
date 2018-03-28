@@ -3,7 +3,7 @@
 
 # create release dir from latest tag
 current_tag=$(git describe --tags | awk -F"-" '{print $1"."$2}')
-release_dir=pupil_$curent_tag_linux_x64
+release_dirmkdi=$(echo -e "pupil_${current_tag}_linux_x64")
 mkdir $release_dir
 
 # build dependencies
@@ -26,4 +26,4 @@ cd ../deploy_player
 mv *.deb ../$release_dir
 
 # temporary line for diagnostics before we gzip and transfer bundles
-cd ../../ && ls -alR
+cd ../ && ls -alR
