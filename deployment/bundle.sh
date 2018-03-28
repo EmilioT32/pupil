@@ -3,7 +3,7 @@
 
 # create release dir from latest tag
 current_tag=$(git describe --tags | awk -F"-" '{print $1"."$2}')
-release_dirmkdi=$(echo -e "pupil_${current_tag}_linux_x64")
+release_dir=$(echo -e "pupil_${current_tag}_linux_x64")
 mkdir $release_dir
 
 # build dependencies
