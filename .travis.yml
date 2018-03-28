@@ -8,10 +8,10 @@ branches:
 os:
   - linux
 
-addons:
-  apt:
-    packages:
-      - docker-ce
+# addons:
+#   apt:
+#     packages:
+#       - docker-ce
 
 before_install:
   # create a docker container for 16.04 'pupil-ubuntu' and map working dir to travis
