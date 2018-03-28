@@ -3,8 +3,9 @@
 
 # create release dir from latest tag
 current_tag=$(git describe --tags | awk -F"-" '{print $1"."$2}')
-release_dir=$(echo -e "pupil_${current_tag}_linux_x64")
-mkdir $release_dir
+release_dir=$(echo "pupil_${current_tag}_linux_x64")
+echo "release_dir:  ${release_dir}"
+mkdir ${release_dir}
 
 # build dependencies
 python3 ../pupil_src/shared_modules/pupil_detectors/build.py
