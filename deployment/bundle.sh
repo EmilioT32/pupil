@@ -1,17 +1,29 @@
+#!/bin/sh
+# Note: this script assumes that it is being run from within the deploymnet dir
+
+# create release dir from latest tag
+current_tag=$(git describe --tags | awk -F"-" '{print $1"."$2}')
+release_dir=pupil_$curent_tag_linux_x64
+mkdir $release_dir
+
+# build dependencies
 python3 ../pupil_src/shared_modules/pupil_detectors/build.py
 python3 ../pupil_src/shared_modules/cython_methods/build.py
-rm *.dmg
-rm *.deb
+
+# bundle Pupil Capture
 cd deploy_capture
 ./bundle.sh
-mv *.deb ../
-mv *.dmg ../
+mv *.deb ../$release_dir
+
+# bundle Pupil Service
 cd ../deploy_service
 ./bundle.sh
-mv *.deb ../
-mv *.dmg ../
+mv *.deb ../$release_dir
+
+# bundle Pupil Player
 cd ../deploy_player
 ./bundle.sh
-mv *.deb ../
-mv *.dmg ../
-cd ../
+mv *.deb ../$release_dir
+
+# temporary line for diagnostics before we gzip and transfer bundles
+cd ../../ && ls -alR
