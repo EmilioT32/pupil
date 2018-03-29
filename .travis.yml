@@ -15,7 +15,9 @@ before_install:
 - docker ps
 
 script:
-- docker exec -t pupil-ubuntu bash -c "chmod +x pupil && ./deployment/bundle.sh"
+- docker exec -t pupil-ubuntu bash -c "chmod +x pupil && 
+  cd cd pupil/deployment
+  ./bundle.sh"
 
 before_deploy:
   - echo "Preparing to deploy to Github"
