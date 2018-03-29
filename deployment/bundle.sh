@@ -7,7 +7,7 @@ echo "release_dir:  ${release_dir}"
 mkdir ${release_dir}
 
 # build dependencies
-printf "\n##########\nBuilding dependencies\n##########\n"
+printf "\n##########\nBuilding dependencies\n##########\n\n"
 python3 ../pupil_src/shared_modules/pupil_detectors/build.py
 python3 ../pupil_src/shared_modules/cython_methods/build.py
 
