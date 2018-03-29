@@ -16,7 +16,7 @@ before_install:
 
 script:
 - docker exec -t pupil-ubuntu bash -c "chmod +x pupil && 
-  cd cd pupil/deployment
+  cd pupil/deployment &&
   ./bundle.sh"
 
 before_deploy:
