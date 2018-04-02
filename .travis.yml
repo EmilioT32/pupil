@@ -15,14 +15,8 @@ before_install:
 - docker ps
 
 script:
-- docker exec -t pupil-ubuntu bash -c "chmod +x pupil &&
-  cd pupil/pupil_src/shared_modules/pupil_detectors/ &&
-  python3 setup.py build &&
-  cd /root" 
-- docker exec -t pupil-ubuntu bash -c "cd pupil/pupil_src/shared_modules/calibration_routines/optimization_calibration/ &&
-  python3 setup.py build &&
-  cd /root" 
-- docker exec -t pupil-ubuntu bash -c "cd pupil/deployment &&
+- docker exec -t pupil-ubuntu bash -c "chmod +x pupil && 
+  cd pupil/deployment &&
   ./bundle.sh"
 
 before_deploy:
